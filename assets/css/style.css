@@ -1,0 +1,30 @@
+.jumbotron {
+    padding-top: 6rem;
+    background-color: #e2edff
+}
+
+#toko {
+    background-color: #e2edff
+}
+
+section {
+    padding-top: 5rem;
+}
+
+.medsos a {
+    margin: 2px;
+    color: #182281;
+}
+
+.medsos a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.sosmed a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.sosmed a {
+    color: #060c45;
+    margin: 2px;
+}
