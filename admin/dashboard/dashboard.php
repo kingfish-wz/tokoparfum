@@ -13,7 +13,7 @@
             <div class="card-header border-0">
               <div class="row">
                 <div class="container text-center">
-                  <img src="./fotologo/h.png" alt="foto" width="350">
+                  <img src="../../fotologo/h.png" alt="foto" width="350">
                   <p class="lead"> Selamat Datang Admin | Toko Parfum Pamekasan</p>
                   <div class="med">
                       <a href=""><i class="bi bi-instagram"></i></a>

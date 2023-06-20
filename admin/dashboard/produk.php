@@ -10,7 +10,7 @@ if($query) {
 }
 ?>
 <div class="header bg-gradient-primary  pb-8 pt-5 pt-md-8">
-      <div class="container-fluid">
+    <div class="container-fluid">
       </div>  
     </div>
     <div class="container-fluid mt--7">
@@ -35,7 +35,6 @@ if($query) {
                     <th scope="col" class="text-center">No</th>
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Harga</th>
-                    <th scope="col">Stok</th>
                     <th scope="col">Foto</th>
                     <th class="text-center" scope="col">#</th>
                   </tr>
@@ -48,13 +47,12 @@ if($query) {
                     ?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td><?= $d['nama_barang']; ?></td>
+                            <td><?= $d['nama']; ?></td>
                             <td><?= $d['harga']; ?></td>
-                            <td ><?= $d['stok']; ?></td>
-                            <td><img src="galeri/<?= $d['kode_barang']; ?>" height="50px"></td>
+                            <td><img src="../../galeri/<?= $d['kode'] . '.png'; ?>" height="50px"></td>
                             <td class="text-center">
-                              <a href="?page=tambah_produk&edit_id=<?= $d['kode_barang'] ?>" class="text-info mr-3"> <i class="fas fa-pen"></i></a>
-                              <a href="?page=produk&hapus_id=<?= $d['kode_barang'] ?>" class="text-danger"> <i class="fas fa-trash"></i></a>
+                              <a href="?page=tambah_produk&edit_id=<?= $d['kode'] ?>" class="text-info mr-3"> <i class="fas fa-pen"></i></a>
+                              <a href="?page=produk&hapus_id=<?= $d['kode'] ?>" class="text-danger"> <i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php
