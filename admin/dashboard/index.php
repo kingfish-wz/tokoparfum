@@ -54,18 +54,86 @@ if(empty($_SESSION['username'])) {
             </div>
             <!-- Navigation -->
             <ul class="navbar-nav mt-2">
-            <li class="nav-item  active ">
-                <a class="nav-link  active " href="?page=dashboard">
-                <i class="bi bi-house text-primary"></i> Home </a>
-            </li>
-            <li class="nav-item">
-                <a href="?page=produk" class="nav-link">
-                <i class="bi bi-shop-window"></i></i>Produk</a>
-            </li>
-            <li class="nav-item">
-                <a href="?page=about" class="nav-link">
-                <i class="bi bi-file-earmark-person"></i>About</a>
-            </li>
+                <?php 
+                        @$page = $_GET['page'];
+                        if ($page == 'dashboard') {
+                            ?>
+                                <li class="nav-item ">
+                                    <a class="nav-link active " href="?page=dashboard">
+                                    <i class="bi bi-house text-primary"></i> Home </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?page=produk" class="nav-link">
+                                    <i class="bi bi-shop-window"></i></i>Produk</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?page=about" class="nav-link">
+                                    <i class="bi bi-file-earmark-person"></i>About</a>
+                                </li>
+                            <?php
+                        } elseif ($page == 'produk'){
+                            ?>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="?page=dashboard">
+                                    <i class="bi bi-house"></i> Home </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a href="?page=produk" class="nav-link active">
+                                    <i class="bi bi-shop-window text-primary"></i></i>Produk</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?page=about" class="nav-link">
+                                    <i class="bi bi-file-earmark-person"></i>About</a>
+                                </li>
+                            <?php
+                        } elseif ($page == 'tambah_produk') {
+                            ?>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="?page=dashboard">
+                                    <i class="bi bi-house"></i> Home </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a href="?page=produk" class="nav-link active">
+                                    <i class="bi bi-shop-window text-primary"></i></i>Produk</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?page=about" class="nav-link">
+                                    <i class="bi bi-file-earmark-person"></i>About</a>
+                                </li>
+                            <?php
+                        } elseif ($page == 'about') {
+                            ?>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="?page=dashboard">
+                                    <i class="bi bi-house"></i> Home </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a href="?page=produk" class="nav-link">
+                                    <i class="bi bi-shop-window"></i></i>Produk</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a href="?page=about" class="nav-link active">
+                                    <i class="bi bi-file-earmark-person text-primary"></i>About</a>
+                                </li>
+                            <?php
+                        } 
+                        else {
+                            ?>
+                                <li class="nav-item ">
+                                    <a class="nav-link active " href="?page=dashboard">
+                                    <i class="bi bi-house text-primary"></i> Home </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?page=produk" class="nav-link">
+                                    <i class="bi bi-shop-window"></i></i>Produk</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="?page=about" class="nav-link">
+                                    <i class="bi bi-file-earmark-person"></i>About</a>
+                                </li>
+                            <?php
+                        }
+                ?>
             </ul>
         </div>
         </div>
@@ -128,6 +196,12 @@ if(empty($_SESSION['username'])) {
             token: "ee6fab19c5a04ac1a32a645abde4613a",
             application: "argon-dashboard-free"
         });
+        $('.nav-item').on('click', function() {
+                $('.nav-item').removeClass('active');
+                $('.bi').removeClass('active');
+                $(this).addClass('active');
+                $(this).find('.bi').addClass('text-primary');
+            });
     </script>
     </body>
 </html>

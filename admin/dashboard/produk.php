@@ -48,7 +48,7 @@ if($query) {
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
                             <td><?= $d['nama']; ?></td>
-                            <td><?= $d['harga']; ?></td>
+                            <td><?= 'Rp. ' . number_format($d['harga'],0, ',' ,'.') ?></td>
                             <td><img src="../../galeri/<?= $d['kode'] . '.png'; ?>" height="50px"></td>
                             <td class="text-center">
                               <a href="?page=tambah_produk&edit_id=<?= $d['kode'] ?>" class="text-info mr-3"> <i class="fas fa-pen"></i></a>
