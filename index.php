@@ -31,13 +31,6 @@ include './config.php'
     <link href="assets/css/style2.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
 
-    <!-- =======================================================
-    * Template Name: MyResume
-    * Updated: May 30 2023 with Bootstrap v5.3.0
-    * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
 
 <body>
@@ -47,7 +40,7 @@ include './config.php'
     <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
     <!-- ======= Header ======= -->
     <header id="header" class="d-flex flex-column justify-content-center">
-
+        <!-- .nav-menu -->
         <nav id="navbar" class="navbar nav-menu">
             <ul>
                 <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
@@ -56,7 +49,7 @@ include './config.php'
                 <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
             </ul>
         </nav>
-        <!-- .nav-menu -->
+        
     </header>
     <!-- End Header -->
 

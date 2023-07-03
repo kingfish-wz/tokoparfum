@@ -40,9 +40,9 @@ if(empty($_SESSION['username'])) {
             <div class="navbar-collapse-header d-md-none">
             <div class="row">
                 <div class="col-6 collapse-brand">
-                <a href="../index.php">
-                    <img src="../../assets/img/brand/blue.png">
-                </a>
+                    <a href="../index.php">
+                        <img src="../../assets/img/brand/blue.png">
+                    </a>
                 </div>
                 <div class="col-6 collapse-close">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
@@ -55,84 +55,31 @@ if(empty($_SESSION['username'])) {
             <!-- Navigation -->
             <ul class="navbar-nav mt-2">
                 <?php 
-                        @$page = $_GET['page'];
-                        if ($page == 'dashboard') {
-                            ?>
-                                <li class="nav-item ">
-                                    <a class="nav-link active " href="?page=dashboard">
-                                    <i class="bi bi-house text-primary"></i> Home </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="?page=produk" class="nav-link">
-                                    <i class="bi bi-shop-window"></i></i>Produk</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="?page=about" class="nav-link">
-                                    <i class="bi bi-file-earmark-person"></i>About</a>
-                                </li>
-                            <?php
-                        } elseif ($page == 'produk'){
-                            ?>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="?page=dashboard">
-                                    <i class="bi bi-house"></i> Home </a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a href="?page=produk" class="nav-link active">
-                                    <i class="bi bi-shop-window text-primary"></i></i>Produk</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="?page=about" class="nav-link">
-                                    <i class="bi bi-file-earmark-person"></i>About</a>
-                                </li>
-                            <?php
-                        } elseif ($page == 'tambah_produk') {
-                            ?>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="?page=dashboard">
-                                    <i class="bi bi-house"></i> Home </a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a href="?page=produk" class="nav-link active">
-                                    <i class="bi bi-shop-window text-primary"></i></i>Produk</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="?page=about" class="nav-link">
-                                    <i class="bi bi-file-earmark-person"></i>About</a>
-                                </li>
-                            <?php
-                        } elseif ($page == 'about') {
-                            ?>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="?page=dashboard">
-                                    <i class="bi bi-house"></i> Home </a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a href="?page=produk" class="nav-link">
-                                    <i class="bi bi-shop-window"></i></i>Produk</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a href="?page=about" class="nav-link active">
-                                    <i class="bi bi-file-earmark-person text-primary"></i>About</a>
-                                </li>
-                            <?php
-                        } 
-                        else {
-                            ?>
-                                <li class="nav-item ">
-                                    <a class="nav-link active " href="?page=dashboard">
-                                    <i class="bi bi-house text-primary"></i> Home </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="?page=produk" class="nav-link">
-                                    <i class="bi bi-shop-window"></i></i>Produk</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="?page=about" class="nav-link">
-                                    <i class="bi bi-file-earmark-person"></i>About</a>
-                                </li>
-                            <?php
-                        }
+                    @$page = $_GET['page'];
+                    ?>
+                        <li class="nav-item <?php if ($page == 'dashboard' or $page == '') echo 'active' ?>">
+                            <a class="nav-link <?php if ($page == 'dashboard' or $page == '') echo 'active' ?> " href="?page=dashboard">
+                            <i class="bi bi-house <?php if ($page == 'dashboard' or $page == '') echo 'text-primary' ?>"></i> Home </a>
+                        </li>
+                        <?php
+                            if ($_SESSION['group'] == 'developer' or $_SESSION['group'] == 'owner') {
+                                ?>
+                                    <li class="nav-item <?php if ($page == 'adminmenu' or $page == 'tambahadmin') echo 'active' ?>">
+                                        <a class="nav-link <?php if ($page == 'adminmenu' or $page == 'tambahadmin') echo 'active' ?> " href="?page=adminmenu">
+                                        <i class="bi bi-person-check-fill <?php if ($page == 'adminmenu' or $page == 'tambahadmin') echo 'text-primary' ?>"></i> Admin Menu </a>
+                                    </li>
+                                <?php
+                            }
+                        ?>
+                        <li class="nav-item <?php if ($page == 'produk' or $page == 'tambah_produk') echo 'active' ?>">
+                            <a href="?page=produk" class="nav-link <?php if ($page == 'produk' or $page == 'tambah_produk') echo 'active' ?>">
+                            <i class="bi bi-shop-window <?php if ($page == 'produk' or $page == 'tambah_produk') echo 'text-primary' ?>"></i></i>Produk</a>
+                        </li>
+                        <li class="nav-item <?php if ($page == 'about') echo 'active' ?>">
+                            <a href="?page=about" class="nav-link <?php if ($page == 'about') echo 'active' ?>">
+                            <i class="bi bi-file-earmark-person <?php if ($page == 'about') echo 'text-primary' ?>"></i>About</a>
+                        </li>
+                    <?php
                 ?>
             </ul>
         </div>
@@ -151,10 +98,10 @@ if(empty($_SESSION['username'])) {
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../../assets/img/theme/images.jpeg">
+                        <img alt="Image placeholder" src="../../assets/img/theme/images.jpeg">
                     </span>
                     <div class="media-body ml-2 d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold"><?= $_SESSION['nama']?></span>
+                        <span class="mb-0 text-sm  font-weight-bold"><?= $_SESSION['nama']?></span>
                     </div>
                 </div>
                 </a>
@@ -175,7 +122,13 @@ if(empty($_SESSION['username'])) {
             include './tambah.php';
         } elseif ($page == 'about') {
             include './about.php';
-        } 
+        }
+        elseif ($page == 'adminmenu'){
+            include './adminmenu.php';
+        }
+        elseif ($page == 'tambahadmin'){
+            include './tambahadmin.php';
+        }
         else {
             include "./dashboard.php";
         }
@@ -196,12 +149,19 @@ if(empty($_SESSION['username'])) {
             token: "ee6fab19c5a04ac1a32a645abde4613a",
             application: "argon-dashboard-free"
         });
-        $('.nav-item').on('click', function() {
-                $('.nav-item').removeClass('active');
-                $('.bi').removeClass('active');
-                $(this).addClass('active');
-                $(this).find('.bi').addClass('text-primary');
-            });
+        var password = document.getElementById("exampleInputPassword1")
+        , confirm_password = document.getElementById("examplereInputPassword1");
+
+        function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
     </script>
     </body>
 </html>

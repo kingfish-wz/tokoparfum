@@ -10,10 +10,10 @@ if (isset($_POST['login'])) {
     $query = mysqli_fetch_assoc($koneksi->query("SELECT * FROM tb_users WHERE username = '$username'"));
     # if (password_verify($password, $query['password']))
     if ($query) {
-        if ($password == $query['password']) {
+        if (md5($password) == $query['password']) {
             $_SESSION['username'] =  $query['username'];
-            $_SESSION['nama'] = $query['nama_lengkap']; 
-            $_SESSION['grade'] = $query['grade']; 
+            $_SESSION['nama'] = $query['nama']; 
+            $_SESSION['group'] = $query['group']; 
             header('location: index.php?page=dashboard');
         }
         else{
